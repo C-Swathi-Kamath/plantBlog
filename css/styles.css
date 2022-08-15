@@ -1,0 +1,246 @@
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #e8e7e3;
+}
+
+/* Navbar */
+
+.navbar {
+  padding: 20px 8px 20px 20px; 
+    background-color: #e8e7e3;
+  }
+
+  .logo-icon {
+    margin-right: 2%;
+}
+
+#logo {
+  color: #198754;
+}
+
+.navbar-brand {
+  text-transform: uppercase;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.5rem;
+    font-weight: bold;
+    padding-left: 2%;
+  }
+  
+.nav-item {
+    padding: 0 18px;
+  }
+  
+  .nav-link {
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Home page */
+/* Title section */
+
+.title-container {
+    background-image: url("../images/titleimage.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+
+.title {
+    padding: 9% 3% 0 5%;
+}
+
+.title-heading {
+    font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.5;
+}
+
+.title-para {
+    line-height: 2;
+}
+
+.title-button {
+    margin: 4% 3% 0 0;
+    border-radius: 25px;
+}
+
+/* Steps */
+
+
+.steps-heading, .steps-main-heading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #f3f0f0;
+}
+
+.steps-main-heading {
+    font-size: 2.5rem;
+}
+  
+  .steps-para {
+    color: #a6cdc4;
+  }
+  
+  .icon {
+    color: #a6cdc4;
+    margin-bottom: 2rem;
+  }
+  
+  .icon:hover {
+    color: #c5fff2;
+  }
+  
+  #steps {
+    padding: 7% 10%;
+    background-color: #198754;
+    text-align: center;
+  }
+  
+  .steps-box { 
+    padding: 5%;
+  }
+
+  /* Recommended */
+
+  #recommended {
+    padding: 7% 7% 0;
+    text-align: center;
+    background-color: #e8e7e3;
+  }
+
+  .recommended-text {
+    font-weight: 900;
+    font-size: 2.5rem;
+  }
+
+  .recommended-image {
+    width: 100%;
+    height: 65%;
+    /* padding: 0 4%; */
+    margin-top: 8%;
+  }
+
+  /* Testimonials */
+
+  #testimonials {
+    background-color: #198754;
+    color: #fff;
+  }
+  
+  .testimonial-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    line-height: 1.5;
+    font-weight: 900;
+  }
+  
+  .testimonial-image {
+    width: 10%;
+    border-radius: 100%;
+    margin: 20px;
+  }
+  
+  .carousel-item {
+    padding: 7% 15%;
+  }
+
+/* Footer Section */
+
+#footer {
+  padding: 5% 14%;
+  text-align: center;
+  background-color: #fff;
+}
+
+.social-icon {
+  margin: 20px 10px;
+}
+
+  
+/* Contact */
+#contact {
+  background-image: url("../images/contactimage.jpg");
+  background-size: cover;
+  height: 100vh;
+
+};
+
+.contact-input {
+  width: 80%;
+}
+
+.contact-heading {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1.5;
+}
+
+.contact-button {
+  text-align: right;
+}
+
+/* About */
+
+.about {
+  background-color: #e8e7e3;
+}
+
+.about-image {
+  width: 65%;
+  height: 90%;
+}
+
+/* Signup */
+#signup {
+  background-image: url("../images/signupimage.jpg");
+  background-size: cover;
+}
+
+
+.form-control, .form-select {
+  padding: 2% 2%;
+}
+
+.signup-input {
+  width:80%;
+}
+
+/* Login */
+
+#login {
+  background-image: url("../images/signupimage2.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+/* Care tips */
+.carelist {
+  list-style: none;
+}
+
+.carelist li:before {
+  content: "🌿";
+  margin: 0 16px 0 0;
+}
+
+.cactus-list li:before {
+  content: "🌵";
+}
+
+.flower-list li:before {
+  content: "🌺";
+}
+
+.veggie-list li:before {
+  content: "🥕";
+}
+
+.bonsai-list li:before {
+  content: "🌲";
+}
+
+.croton-list li:before {
+  content: "🍁";
+}
+
