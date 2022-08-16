@@ -1,3 +1,15 @@
+<?php 
+
+session_start();
+
+	include("connection.php");
+	include("functions.php");
+  $id = $_SESSION['id'];
+	$query = "select * from user where id = '$id' limit 1";
+  $result = mysqli_query($con,$query);
+  $user_data = mysqli_fetch_assoc($result);
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,20 +40,22 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand" id="logo" href="index.html"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
+      <a class="navbar-brand" id="logo" href="index.php"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+        <?php if($id == '')
+        { ?> <li class="nav-item">
+          <a class="nav-link" href="index.php">Home</a>
+        </li> 
+       <?php } ?>    
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="about.php">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
+            <a class="nav-link" href="blog.php">Blog</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
@@ -49,22 +63,29 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="pricing.html">Pricing</a>
+                <a class="dropdown-item" href="pricing.php">Pricing</a>
               </li>
               <li>
-                <a class="dropdown-item" href="gallery.html">Gallery</a>
+                <a class="dropdown-item" href="gallery.php">Gallery</a>
               </li>
               <li>
-                <a class="dropdown-item" href="caretips.html">Care tips</a>
+                <a class="dropdown-item" href="caretips.php">Care tips</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="contact.php">Contact</a>
           </li>
+          <?php if($id == '')
+        { ?>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
+            <a class="nav-link" href="login.php">Login</a>
           </li>
+       <?php }else{ ?>
+        <li class="nav-item">
+            <a class="nav-link" href="logout.php">Logout</a>
+          </li>
+        <?php }?>
         </ul>
       </div>
     </div>
@@ -76,10 +97,10 @@
     <div class="row my-5 mx-4">
       <div class="col-lg-4 col-md-6 px-4">
         <div class="card mx-auto">
-          <a href="post2.html"><img src="images/blog/p2.jpg" class="card-img-top width-100" alt="plants in pots" /></a>
+          <a href="post2.php"><img src="images/blog/p2.jpg" class="card-img-top width-100" alt="plants in pots" /></a>
           <div class="card-body">
             <p class="card-text">
-              <a href="post2.html" class="text-decoration-none link-dark fs-5">What planter/pot should I buy?</a>
+              <a href="post2.php" class="text-decoration-none link-dark fs-5">What planter/pot should I buy?</a>
             </p>
           </div>
         </div>
@@ -87,11 +108,11 @@
 
       <div class="col-lg-4 col-md-6 px-4">
         <div class="card mx-auto">
-          <a href="post1.html"><img src="images/blog/p1.jpg" class="card-img-top width-100"
+          <a href="post1.php"><img src="images/blog/p1.jpg" class="card-img-top width-100"
               alt="Gardening tools spread out" /></a>
           <div class="card-body">
             <p class="card-text">
-              <a href="post1.html" class="text-decoration-none link-dark fs-5">Gardening is a hobby for all</a>
+              <a href="post1.php" class="text-decoration-none link-dark fs-5">Gardening is a hobby for all</a>
             </p>
           </div>
         </div>
@@ -99,11 +120,11 @@
 
       <div class="col-lg-4 col-md-6 px-4">
         <div class="card mx-auto">
-          <a href="post3.html"><img src="images/blog/p3.jpg" class="card-img-top width-100"
+          <a href="post3.php"><img src="images/blog/p3.jpg" class="card-img-top width-100"
               alt="planting a plant" /></a>
           <div class="card-body">
             <p class="card-text">
-              <a href="post3.html" class="text-decoration-none link-dark fs-5">Fix these gardening mistakes today!</a>
+              <a href="post3.php" class="text-decoration-none link-dark fs-5">Fix these gardening mistakes today!</a>
             </p>
           </div>
         </div>
@@ -113,10 +134,10 @@
     <div class="row my-5 mx-4">
       <div class="col-lg-4 col-md-6 px-4">
         <div class="card mx-auto">
-          <a href="post6.html"><img src="images/blog/p6.jpg" class="card-img-top width-100" alt="suitcase" /></a>
+          <a href="post6.php"><img src="images/blog/p6.jpg" class="card-img-top width-100" alt="suitcase" /></a>
           <div class="card-body">
             <p class="card-text">
-              <a href="post6.html" class="text-decoration-none link-dark fs-5">Plant vs Holiday</a>
+              <a href="post6.php" class="text-decoration-none link-dark fs-5">Plant vs Holiday</a>
             </p>
           </div>
         </div>
@@ -124,10 +145,10 @@
 
       <div class="col-lg-4 col-md-6 px-4">
         <div class="card mx-auto">
-          <a href="post4.html"><img src="images/blog/p4.jpg" class="card-img-top width-100" alt="trees in snow" /></a>
+          <a href="post4.php"><img src="images/blog/p4.jpg" class="card-img-top width-100" alt="trees in snow" /></a>
           <div class="card-body">
             <p class="card-text">
-              <a href="post4.html" class="text-decoration-none link-dark fs-5">The effect of winter season on plants</a>
+              <a href="post4.php" class="text-decoration-none link-dark fs-5">The effect of winter season on plants</a>
             </p>
           </div>
         </div>
@@ -135,11 +156,11 @@
 
       <div class="col-lg-4 col-md-6 px-4">
         <div class="card mx-auto">
-          <a href="post5.html"><img src="images/blog/p5.jpg" class="card-img-top width-100"
+          <a href="post5.php"><img src="images/blog/p5.jpg" class="card-img-top width-100"
               alt="plant parent book" /></a>
           <div class="card-body">
             <p class="card-text">
-              <a href="post5.html" class="text-decoration-none link-dark fs-5">The New Plant Parent (Book Review)</a>
+              <a href="post5.php" class="text-decoration-none link-dark fs-5">The New Plant Parent (Book Review)</a>
             </p>
           </div>
         </div>

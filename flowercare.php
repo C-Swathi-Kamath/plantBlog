@@ -1,3 +1,15 @@
+<?php 
+
+session_start();
+
+	include("connection.php");
+	include("functions.php");
+  $id = $_SESSION['id'];
+	$query = "select * from user where id = '$id' limit 1";
+  $result = mysqli_query($con,$query);
+  $user_data = mysqli_fetch_assoc($result);
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,11 +22,11 @@
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="images/sprout.ico" />
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;900&family=Ubuntu:wght@400;700&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" />
   <!-- Font awesome (for icons) -->
   <script src="https://kit.fontawesome.com/4e7f5f554e.js" crossorigin="anonymous"></script>
   <!-- Bootstrap CSS -->
@@ -22,77 +34,90 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <!-- Custom External CSS -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" />
-
 </head>
 
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand" id="logo" href="index.html"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
+      <a class="navbar-brand" id="logo" href="index.php"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+        <?php if($id == '')
+        { ?> <li class="nav-item">
+          <a class="nav-link" href="index.php">Home</a>
+        </li> 
+       <?php } ?>    
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="about.php">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
+            <a class="nav-link" href="blog.php">Blog</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
               Miscellaneous
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="pricing.html">Pricing</a></li>
-              <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
-              <li><a class="dropdown-item" href="caretips.html">Care tips</a></li>
+              <li>
+                <a class="dropdown-item" href="pricing.php">Pricing</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="gallery.php">Gallery</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="caretips.php">Care tips</a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="contact.php">Contact</a>
           </li>
+          <?php if($id == '')
+        { ?>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
+            <a class="nav-link" href="login.php">Login</a>
           </li>
+       <?php }else{ ?>
+        <li class="nav-item">
+            <a class="nav-link" href="logout.php">Logout</a>
+          </li>
+        <?php }?>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Gallery -->
+  <!-- Care -->
+  <div class="row">
+    <div class="col-lg-6 my-5 mx-auto ps-5">
+      <h2 class="ms-5 fw-bold pb-4">Care tips for flowering plants</h2>
+      <p class="mx-5">
+        Flower plants need top-notch care to grow properly.
+        Some of these plants are quite sensitive to changes in weather conditions and can wither and die in a short
+        period of time under harsh conditions.
+      </p>
+      <ul class="mx-5 list-unstyled flower-list">
+        <li class="mb-2">Water your flowers regularly</li>
+        <li class="mb-2">Apply appropriate fertilizers</li>
+        <li class="mb-2">Remove weeds from your flower garden</li>
+        <li class="mb-2">Mulch your flowers</li>
+        <li class="mb-2">Provide them with enough sunlight</li>
+        <li class="mb-2">Prevent and control pests</li>
+        <li class="mb-2">Prevent and control diseases</li>
+        <li class="mb-2">Pinch and prune your plants</li>
+        <li class="mb-2">Replace the soil</li>
+        <li class="mb-2">Use clean tools in your flower garden</li>
+      </ul>
 
-  <div class="py-4 px-5 my-5 mx-3">
-    <h2 class="fs-2 fw-bold pb-2">Browse our work</h2>
-    <p class="fs-5 pb-3">Our team has designed and decorated several homes and work places. We currently have over 100
-      varieties of plants</p>
-    <button type="button" onclick="location.href ='contact.html'" class="btn btn-success btn-lg rounded-pill">Book
-      now</button>
-  </div>
-  <div class="row px-5 mb-5 mx-3">
-    <div class="col-lg-4 mb-4">
-      <img src="images/gallery/gallery5.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Succulents on a stand" />
-
-      <img src="images/gallery/gallery1.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Plants on a stand" />
+      <p class="my-5 ms-5"><a href="https://dengarden.com/gardening/How-to-Take-Care-of-your-Flower-Plants"
+          class="link-success">Source: DenGarden </a></p>
     </div>
-
-    <div class="col-lg-4 mb-4">
-      <img src="images/gallery/gallery3.jpg" class="w-100 shadow-1-strong rounded mb-4"
-        alt="Cafe decorated with plants" />
-
-      <img src="images/gallery/gallery4.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Gardening" />
-    </div>
-
-    <div class="col-lg-4 mb-4">
-      <img src="images/gallery/gallery6.jpg" class="w-100 shadow-1-strong rounded mb-4"
-        alt="Succulents in potted plants" />
-
-      <img src="images/gallery/gallery2.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Arranged potted plants" />
+    <div class="col-lg-6 my-5 mx-auto">
+      <img src="images/care/flowers.jpg" class="w-75 mx-5 ps-4" alt="flowers">
     </div>
   </div>
 

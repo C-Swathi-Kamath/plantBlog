@@ -1,3 +1,15 @@
+<?php 
+
+session_start();
+
+	include("connection.php");
+	include("functions.php");
+  $id = $_SESSION['id'];
+	$query = "select * from user where id = '$id' limit 1";
+  $result = mysqli_query($con,$query);
+  $user_data = mysqli_fetch_assoc($result);
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,20 +40,22 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand" id="logo" href="index.html"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
+      <a class="navbar-brand" id="logo" href="index.php"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+        <?php if($id == '')
+        { ?> <li class="nav-item">
+          <a class="nav-link" href="index.php">Home</a>
+        </li> 
+       <?php } ?>    
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="about.php">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
+            <a class="nav-link" href="blog.php">Blog</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
@@ -49,22 +63,29 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="pricing.html">Pricing</a>
+                <a class="dropdown-item" href="pricing.php">Pricing</a>
               </li>
               <li>
-                <a class="dropdown-item" href="gallery.html">Gallery</a>
+                <a class="dropdown-item" href="gallery.php">Gallery</a>
               </li>
               <li>
-                <a class="dropdown-item" href="caretips.html">Care tips</a>
+                <a class="dropdown-item" href="caretips.php">Care tips</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="contact.php">Contact</a>
           </li>
+          <?php if($id == '')
+        { ?>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
+            <a class="nav-link" href="login.php">Login</a>
           </li>
+       <?php }else{ ?>
+        <li class="nav-item">
+            <a class="nav-link" href="logout.php">Logout</a>
+          </li>
+        <?php }?>
         </ul>
       </div>
     </div>
@@ -73,49 +94,46 @@
   <!-- Care -->
   <div class="row">
     <div class="col-lg-6 my-5 mx-auto ps-5">
-      <h2 class="ms-5 fw-bold pb-4">Care tips for cacti and succulents</h2>
+      <h2 class="ms-5 fw-bold pb-4">Care tips for Crotons</h2>
       <p class="mx-5">
-        Cacti and succulents are easy care, drought tolerant plants. Avaiable
-        in an array of colors and styles, they store water in the fleshy
-        tissues of their stems, roots or leaves.
+        Crotons have some of the boldest and brightest foliage around. Often
+        vividly marked with bright yellow, orange, and red, these exotic
+        plants have a reputation for being high-maintenance due to their
+        tropical nature. But once they acclimate to their new home, they're
+        quite low-care.
       </p>
-      <ul class="mx-5 list-unstyled cactus-list">
-        <li class="mb-2">Cacti and succulents thrive in containers</li>
+      <ul class="mx-5 list-unstyled croton-list">
+        <li class="mb-2">Your Croton will do best in a bright spot</li>
         <li class="mb-2">
-          Slow growing and do not need to be repotted often.
+          It needs lots of light (if possible 4-6 hrs. Per day) to produce all
+          those colorful leaves
+        </li>
+        <li class="mb-2">Water when the top 25%-50% of the soil is dry</li>
+        <li class="mb-2">Crotons appreciate a generous amount of humidity</li>
+        <li class="mb-2">
+          Your Croton prefers temperatures between 60-70 degrees
         </li>
         <li class="mb-2">
-          Bring your plants indoors during the winter months
+          Use a general houseplant fertilizer once in early spring, once in
+          early summer, and again in mid-summer
         </li>
         <li class="mb-2">
-          Containers must have drainage holes for moisture to escape
+          Generally, the Croton does not like to be moved, so a few falling
+          leaves within a week doesn't mean you are doing anything wrong.
         </li>
         <li class="mb-2">
-          Always use cactus soil or add sand to your potting soil
+          Keep your Croton away from drafts and cold areas like a windowpane
+          in the winter
         </li>
-        <li class="mb-2">
-          Most succulents like slightly acidic soil (5.5-6.5).
-        </li>
-        <li class="mb-2">The most common killer is over-watering.</li>
-        <li class="mb-2">
-          A moisture meter is a good tool to gauge how dry or wet the soil is
-        </li>
-        <li class="mb-2">
-          Water every 1-2 weeks, depending on the temperature
-        </li>
-        <li class="mb-2">
-          If your plants are looking a little stunted, they should be
-          fertilized.
-        </li>
+        <li class="mb-2">Prune properly</li>
       </ul>
 
       <p class="my-5 ms-5">
-        <a href="https://hicksnurseries.com/houseplants/cactus-succulents/" class="link-success">Source: Hicks Nurseries
-        </a>
+        <a href="https://bloomscape.com/plant-care-guide/croton/#g1" class="link-success">Source: Bloomscape</a>
       </p>
     </div>
     <div class="col-lg-6 my-5 mx-auto">
-      <img src="images/care/succulent.jpg" class="w-75 mx-5 ps-4" alt="succulent" />
+      <img src="images/care/croton.jpg" class="w-75 mx-5 ps-4" alt="croton" />
     </div>
   </div>
 

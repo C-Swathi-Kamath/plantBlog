@@ -1,3 +1,15 @@
+<?php 
+
+session_start();
+
+	include("connection.php");
+	include("functions.php");
+  $id = $_SESSION['id'];
+	$query = "select * from user where id = '$id' limit 1";
+  $result = mysqli_query($con,$query);
+  $user_data = mysqli_fetch_assoc($result);
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,20 +40,22 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand" id="logo" href="index.html"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
+      <a class="navbar-brand" id="logo" href="index.php"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+        <?php if($id == '')
+        { ?> <li class="nav-item">
+          <a class="nav-link" href="index.php">Home</a>
+        </li> 
+       <?php } ?>    
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="about.php">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
+            <a class="nav-link" href="blog.php">Blog</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
@@ -49,77 +63,95 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="pricing.html">Pricing</a>
+                <a class="dropdown-item" href="pricing.php">Pricing</a>
               </li>
               <li>
-                <a class="dropdown-item" href="gallery.html">Gallery</a>
+                <a class="dropdown-item" href="gallery.php">Gallery</a>
               </li>
               <li>
-                <a class="dropdown-item" href="caretips.html">Care tips</a>
+                <a class="dropdown-item" href="caretips.php">Care tips</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="contact.php">Contact</a>
           </li>
+          <?php if($id == '')
+        { ?>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
+            <a class="nav-link" href="login.php">Login</a>
           </li>
+       <?php }else{ ?>
+        <li class="nav-item">
+            <a class="nav-link" href="logout.php">Logout</a>
+          </li>
+        <?php }?>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- About -->
-  <section class="about">
-    <div class="row">
-      <div class="col-lg-6 my-5 mx-auto ps-5">
-        <h2 class="ms-5 fs-1 fw-bold pb-4">Our Story</h2>
-        <p class="mx-5 fs-5 lh-base">
-          Rooted was born out of an urge to convert a tiny hostel room into a
-          private little plant sanctuary. Should have been easy, there was no
-          dearth of content on the internet that explained "how to". But
-          somehow there still remained a lot of unanswered questions.
-        </p>
-        <p class="mx-5 fs-5 lh-base">
-          Here, I share my tips and findings, house plant experiments and
-          green interior design ideas, from a variety of sources. Behind
-          everything that we do, our motivation remains a fierce commitment to
-          spreading the message of green living, the heart and soul of Rooted!
-        </p>
-      </div>
-      <div class="col-lg-6 my-5 mx-auto">
-        <img src="./images/aboutimage.jpg" class="about-image ms-5 ps-4" alt="leaves" />
-      </div>
+  <section>
+
+    <div class="text-center my-5">
+      <h2 class="fw-bold fs-2 pb-3">A Plan for all your needs</h2>
+      <p class="fs-5">Simple and affordable price plans for your plants</p>
     </div>
+
+
+    <div class="row px-5 py-4 text-white mb-5">
+
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card shadow-lg bg-success">
+          <div class="card-header">
+            <h3>Cactus Plan</h3>
+          </div>
+          <div class="card-body">
+            <h2>Free</h2>
+            <p>One time trial consultation of 10 minutes</p>
+            <p>Access to a plant care guide</p>
+            <p>Access to all articles</p>
+            <button type="button" onclick="location.href ='signup.html'" class="btn btn-outline-light col-12">Sign
+              Up</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card shadow-lg bg-success">
+          <div class="card-header">
+            <h3>Rose Plan</h3>
+          </div>
+          <div class="card-body">
+            <h2>₹500 / mo</h2>
+            <p>Free consultation of 60 minutes</p>
+            <p>A surprise plant will be delivered at your doorstep</p>
+            <p>Access to all articles</p>
+            <button type="button" onclick="location.href ='signup.html'" class="btn btn-light col-12">Sign Up</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-12 mb-5">
+        <div class="card shadow-lg bg-success">
+          <div class="card-header">
+            <h3>Orchid Plan</h3>
+          </div>
+          <div class="card-body">
+            <h2>₹800 / mo</h2>
+            <p>Two personalised consultations</p>
+            <p>A premium plant will be delivered at your doorstep</p>
+            <p>Access to all articles</p>
+            <button type="button" onclick="location.href ='signup.html'" class="btn btn-light col-12">Sign Up</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </section>
 
-  <section class="about">
-    <div class="row">
-      <div class="col-lg-6 my-5 mx-auto ps-5">
-        <img src="./images/aboutimage2.jpg" class="about-image ms-5 ps-4" alt="plants in a pot" />
-      </div>
-      <div class="col-lg-6 my-5 mx-auto">
-        <h2 class="me-5 fs-1 fw-bold pb-4">What you'll get on Rooted</h2>
-        <p class="me-5 fs-5 lh-base">
-          Tons of stuff, from ideas to products, but nothing that's not
-          beautiful. There is something for everyone who wants to make a
-          difference to the way they live
-        </p>
-        <p class="me-5 fs-5 lh-base">Specifically, you can look for</p>
-        <ul class="me-5 fs-5 lh-base">
-          <li>Gardening 'why' and 'how to'</li>
-          <li>Decor ideas</li>
-          <li>Exclusive gardening products</li>
-          <li>Advice on sustainable living</li>
-        </ul>
-        <p class="me-5 fs-5 lh-base">
-          Most importantly, you'll find a way to connect with a community of
-          like- minded people
-        </p>
-      </div>
-    </div>
-  </section>
 
   <!-- Footer -->
 
@@ -133,6 +165,8 @@
       <p>© Copyright 2022 Rooted</p>
     </div>
   </footer>
+
+
 
   <!-- Bootstrap JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

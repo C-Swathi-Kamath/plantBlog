@@ -91,52 +91,56 @@ session_start();
     </div>
   </nav>
 
-
-  <!-- Signup -->
-  <section id="signup" class="pb-4">
+  <!-- About -->
+  <section class="about">
     <div class="row">
-      <div class="col-lg-6 col-md-6 mt-3 px-5 ms-5">
-        <h2 class="fs-2 fw-bold mb-5 ms-5 ps-4">Create a new account</h2>
-        <form name="user" action="signup1.php" method="POST">
-          <div class="mb-3">
-            <label for="name">Name</label>
-            <input type="text" class="signup-input form-control" name="name" placeholder="Name" required>
-          </div>
-          <div class="mb-3">
-            <label for="email">Email address</label>
-            <input type="email" class="signup-input form-control" name="email" placeholder="Email address" required>
-          </div>
-          <!-- <div class="mb-3">
-            <label for="select">Gender</label>
-            <select class="signup-input form-select" id="select">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="floatingInput">Date of birth</label>
-            <input type="date" class="signup-input form-control" id="dob" placeholder="Date of birth">
-          </div> -->
-          <div class="mb-3">
-            <label for="floatingPassword">Password</label>
-            <input type="password" class="signup-input form-control" name="password" placeholder="Password" required>
-          </div>
-          <!-- <div class="mb-3">
-            <label for="cpassword">Confirm Password</label>
-            <input type="password" class="signup-input form-control" name="cpassword" placeholder="Confirm Password"
-              required>
-          </div> -->
-          <div class="signup-buttons ms-5 ps-5 mt-2">
-            <button type="submit" class="btn btn-success btn-lg ms-5 me-3">Signup</button>
-            <button type="button" onclick="location.href ='login.php'"
-              class="btn btn-outline-success btn-lg">Login</button>
-          </div>
-        </form>
+      <div class="col-lg-6 my-5 mx-auto ps-5">
+        <h2 class="ms-5 fs-1 fw-bold pb-4">Our Story</h2>
+        <p class="mx-5 fs-5 lh-base">
+          Rooted was born out of an urge to convert a tiny hostel room into a
+          private little plant sanctuary. Should have been easy, there was no
+          dearth of content on the internet that explained "how to". But
+          somehow there still remained a lot of unanswered questions.
+        </p>
+        <p class="mx-5 fs-5 lh-base">
+          Here, I share my tips and findings, house plant experiments and
+          green interior design ideas, from a variety of sources. Behind
+          everything that we do, our motivation remains a fierce commitment to
+          spreading the message of green living, the heart and soul of Rooted!
+        </p>
+      </div>
+      <div class="col-lg-6 my-5 mx-auto">
+        <img src="./images/aboutimage.jpg" class="about-image ms-5 ps-4" alt="leaves" />
       </div>
     </div>
   </section>
 
+  <section class="about">
+    <div class="row">
+      <div class="col-lg-6 my-5 mx-auto ps-5">
+        <img src="./images/aboutimage2.jpg" class="about-image ms-5 ps-4" alt="plants in a pot" />
+      </div>
+      <div class="col-lg-6 my-5 mx-auto">
+        <h2 class="me-5 fs-1 fw-bold pb-4">What you'll get on Rooted</h2>
+        <p class="me-5 fs-5 lh-base">
+          Tons of stuff, from ideas to products, but nothing that's not
+          beautiful. There is something for everyone who wants to make a
+          difference to the way they live
+        </p>
+        <p class="me-5 fs-5 lh-base">Specifically, you can look for</p>
+        <ul class="me-5 fs-5 lh-base">
+          <li>Gardening 'why' and 'how to'</li>
+          <li>Decor ideas</li>
+          <li>Exclusive gardening products</li>
+          <li>Advice on sustainable living</li>
+        </ul>
+        <p class="me-5 fs-5 lh-base">
+          Most importantly, you'll find a way to connect with a community of
+          like- minded people
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
 
@@ -150,8 +154,6 @@ session_start();
       <p>© Copyright 2022 Rooted</p>
     </div>
   </footer>
-
-
 
   <!-- Bootstrap JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

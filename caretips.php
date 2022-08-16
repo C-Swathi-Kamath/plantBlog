@@ -91,72 +91,52 @@ session_start();
     </div>
   </nav>
 
+        <!-- Care tips -->
+        <section id="caretips">
+            <div class="row my-5">
+            <div class="col-lg-5 mx-auto">
+                <h2 class="fw-bold fs-2 pb-3">General care tips</h2>
+                <ol class="carelist fs-5 lh-lg">
+                    <li>Choose plants based on your light</li>
+                    <li>Pick plants that work with your schedule</li>
+                    <li>Be mindful when watering</li>
+                    <li>Know when to skip the fertilizer</li>
+                    <li>Raise humidity levels when needed</li>
+                    <li>Always keep temperatures stable</li>
+                    <li>Don't be scared to repot</li>
+                    <li>Shop from a reliable source</li>
+                </ol>
+                <h2 class="fw-bold fs-2 py-3">Categories</h2>
+              <ol class="carelist fs-5 lh-lg">
+                <li><a href="flowercare.html" class="text-decoration-none link-success">Flowering plants</a></li>
+                <li><a href="veggiecare.html" class="text-decoration-none link-success">Vegetable plants</a></li>
+                <li><a href="cacticare.html" class="text-decoration-none link-success">Cacti and succulents</a></li>
+                <li><a href="bonsaicare.html" class="text-decoration-none link-success">Bonsai</a></li>
+                <li><a href="crotoncare.html" class="text-decoration-none link-success">Crotons</a></li>
+               </ol>
+            </div>
+                <div class="col-lg-4 mx-auto mt-5">
+                    <img src="./images/plantcare.jpg" class="w-75" alt="plant being potted">
+             </div>
+            </div>
 
-  <!-- Signup -->
-  <section id="signup" class="pb-4">
-    <div class="row">
-      <div class="col-lg-6 col-md-6 mt-3 px-5 ms-5">
-        <h2 class="fs-2 fw-bold mb-5 ms-5 ps-4">Create a new account</h2>
-        <form name="user" action="signup1.php" method="POST">
-          <div class="mb-3">
-            <label for="name">Name</label>
-            <input type="text" class="signup-input form-control" name="name" placeholder="Name" required>
-          </div>
-          <div class="mb-3">
-            <label for="email">Email address</label>
-            <input type="email" class="signup-input form-control" name="email" placeholder="Email address" required>
-          </div>
-          <!-- <div class="mb-3">
-            <label for="select">Gender</label>
-            <select class="signup-input form-select" id="select">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="floatingInput">Date of birth</label>
-            <input type="date" class="signup-input form-control" id="dob" placeholder="Date of birth">
-          </div> -->
-          <div class="mb-3">
-            <label for="floatingPassword">Password</label>
-            <input type="password" class="signup-input form-control" name="password" placeholder="Password" required>
-          </div>
-          <!-- <div class="mb-3">
-            <label for="cpassword">Confirm Password</label>
-            <input type="password" class="signup-input form-control" name="cpassword" placeholder="Confirm Password"
-              required>
-          </div> -->
-          <div class="signup-buttons ms-5 ps-5 mt-2">
-            <button type="submit" class="btn btn-success btn-lg ms-5 me-3">Signup</button>
-            <button type="button" onclick="location.href ='login.php'"
-              class="btn btn-outline-success btn-lg">Login</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
+          
+        </section>
 
+       <!-- Footer -->
 
-  <!-- Footer -->
-
-  <footer id="footer">
-    <div class="container-fluid">
-      <a href="https://www.facebook.com/" class="link-dark"><i class="social-icon fab fa-facebook-f"></i></a>
-      <a href="https://twitter.com/" class="link-dark"><i class="social-icon fab fa-twitter"></i></a>
-      <a href="https://www.instagram.com/?hl=en" class="link-dark"><i class="social-icon fab fa-instagram"></i></a>
-      <a href="https://mail.google.com/" class="link-dark"><i class="social-icon fas fa-envelope"></i></a>
-      <p class="footer-para">Made with 💚 in Nitte</p>
-      <p>© Copyright 2022 Rooted</p>
-    </div>
-  </footer>
-
-
-
-  <!-- Bootstrap JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+ <footer id="footer">
+  <div class="container-fluid">
+    <a href="https://www.facebook.com/" class="link-dark"><i class="social-icon fab fa-facebook-f"></i></a>
+    <a href="https://twitter.com/" class="link-dark"><i class="social-icon fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/?hl=en" class="link-dark"><i class="social-icon fab fa-instagram"></i></a>
+    <a href="https://mail.google.com/" class="link-dark"><i class="social-icon fas fa-envelope"></i></a>
+    <p class="footer-para">Made with 💚 in Nitte</p>
+    <p>© Copyright 2022 Rooted</p>
+  </div>
+</footer>
+   
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-
 </html>
