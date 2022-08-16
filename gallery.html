@@ -29,64 +29,72 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand" id="logo" href="index.php"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
+      <a class="navbar-brand" id="logo" href="index.html"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Home</a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.php">About</a>
+            <a class="nav-link" href="about.html">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="blog.php">Blog</a>
+            <a class="nav-link" href="blog.html">Blog</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
               Miscellaneous
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="pricing.php">Pricing</a></li>
-              <li><a class="dropdown-item" href="gallery.php">Gallery</a></li>
-              <li><a class="dropdown-item" href="caretips.php">Care tips</a></li>
+              <li><a class="dropdown-item" href="pricing.html">Pricing</a></li>
+              <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+              <li><a class="dropdown-item" href="caretips.html">Care tips</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.php">Contact</a>
+            <a class="nav-link" href="contact.html">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.php">Login</a>
+            <a class="nav-link" href="login.html">Login</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  </section>
+  <!-- Gallery -->
 
-  <section id="contact">
-    <div class="col-lg-4 position-absolute start-50 mt-5 ps-5">
-      <h2 class="contact-heading mt-5">We love to hear from you, Get in touch!</h2>
-      <form action="mailto:someone@example.com" method="post" enctype="text/plain">
-        <div class="form-floating mt-5 mb-4">
-          <input type="text" class="form-control contact-input" name="email" id="contact-email" placeholder="name@example.com">
-          <label for="contact-email">Email address</label>
-        </div>
-        <div class="form-floating mb-4">
-          <textarea class="form-control" name="comment" placeholder="Leave a comment here" id="floatingTextarea2"
-            style="height: 200px" ></textarea>
-          <label for="floatingTextarea2">Comments</label>
-        </div>
-        <div class="contact-button">
-        <input type="submit" class="btn btn-success btn-lg  rounded-pill" >
-        </div>
-      </form>
+  <div class="py-4 px-5 my-5 mx-3">
+    <h2 class="fs-2 fw-bold pb-2">Browse our work</h2>
+    <p class="fs-5 pb-3">Our team has designed and decorated several homes and work places. We currently have over 100
+      varieties of plants</p>
+    <button type="button" onclick="location.href ='contact.html'" class="btn btn-success btn-lg rounded-pill">Book
+      now</button>
+  </div>
+  <div class="row px-5 mb-5 mx-3">
+    <div class="col-lg-4 mb-4">
+      <img src="images/gallery/gallery5.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Succulents on a stand" />
+
+      <img src="images/gallery/gallery1.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Plants on a stand" />
     </div>
 
-  </section>
+    <div class="col-lg-4 mb-4">
+      <img src="images/gallery/gallery3.jpg" class="w-100 shadow-1-strong rounded mb-4"
+        alt="Cafe decorated with plants" />
+
+      <img src="images/gallery/gallery4.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Gardening" />
+    </div>
+
+    <div class="col-lg-4 mb-4">
+      <img src="images/gallery/gallery6.jpg" class="w-100 shadow-1-strong rounded mb-4"
+        alt="Succulents in potted plants" />
+
+      <img src="images/gallery/gallery2.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Arranged potted plants" />
+    </div>
+  </div>
 
   <!-- Footer -->
 
