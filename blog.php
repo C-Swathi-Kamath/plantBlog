@@ -2,10 +2,19 @@
 
 	include("includes/db.php");
 	include("functions.php");
+  include('includes/function.php');
   $id = $_SESSION['id'];
 	$query = "select * from user where id = '$id' limit 1";
   $result = mysqli_query($db,$query);
   $user_data = mysqli_fetch_assoc($result);
+
+  if(isset($_GET['page'])){
+    $page=$_GET['page'];
+  }else{
+    $page=1;
+  }
+  $post_per_page=6;
+  $result=($page-1)*$post_per_page;  
   ?>
 
 <!DOCTYPE html>
@@ -35,76 +44,77 @@
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" id="logo" href="index.php"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-        <?php if($id == '')
-        { ?> <li class="nav-item">
-          <a class="nav-link" href="index.php">Home</a>
-        </li> 
-       <?php } ?>    
-          <li class="nav-item">
-            <a class="nav-link" href="about.php">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="blog.php">Blog</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-              Miscellaneous
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="pricing.php">Pricing</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="gallery.php">Gallery</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="caretips.php">Care tips</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.php">Contact</a>
-          </li>
-          <?php if($id == '')
-        { ?>
-          <li class="nav-item">
-            <a class="nav-link" href="login.php">Login</a>
-          </li>
-       <?php }else{ ?>
-        <li class="nav-item">
-            <a class="nav-link" href="logout.php">Logout</a>
-          </li>
-        <?php }?>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<?php include_once('includes/navbar.php'); ?>
 
   <!-- Blog -->
   <section>
     <h2 class="fw-bold fs-2 my-5 mx-5">Check out our posts</h2>
     <div class="row my-5 mx-4">
-      <div class="col-lg-4 col-md-6 px-4">
+    <?php
+      
+        $postQuery="SELECT * FROM posts ORDER BY id DESC LIMIT $result,$post_per_page";
+    
+      
+       $runPQ=mysqli_query($db,$postQuery);
+       while($post=mysqli_fetch_assoc($runPQ)){
+         ?>
+    
+      <div class="col-lg-4 col-md-6 px-4 my-4">
         <div class="card mx-auto">
-          <a href="post2.php"><img src="images/blog/p2.jpg" class="card-img-top width-100" alt="plants in pots" /></a>
+          <a href="post.php?id=<?=$post['id']?>"><img src="images/<?=getPostThumb($db,$post['id'])?>" class="card-img-top width-100"  /></a>
           <div class="card-body">
             <p class="card-text">
-              <a href="post2.php" class="text-decoration-none link-dark fs-5">What planter/pot should I buy?</a>
+              <a href="post.php?id=<?=$post['id']?>" class="text-decoration-none link-dark fs-5"><?=$post['title']?></a>
             </p>
           </div>
         </div>
       </div>
+      <?php
+       }
+       ?>
+</div>
+<?php
 
-      <div class="col-lg-4 col-md-6 px-4">
+  $q="SELECT * FROM posts";
+
+$r=mysqli_query($db,$q);
+$total_posts=mysqli_num_rows($r);
+$total_pages=ceil($total_posts/$post_per_page);
+
+?>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+        <?php
+if($page>1){
+  $switch="";
+}else{
+  $switch="disabled";
+}
+if($page<$total_pages){
+  $nswitch="";
+}else{
+  $nswitch="disabled";
+}
+        ?>
+          <li class="page-item <?=$switch?>">
+            <a class="page-link" href="?<?php if(isset($_GET['search'])){echo "search=$keyword&";}?>page=<?=$page-1?>" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+          <?php
+for($opage=1;$opage<=$total_pages;$opage++){
+  ?>
+          <li class="page-item"><a class="page-link" href="?<?php if(isset($_GET['search'])){echo "search=$keyword&";}?>page=<?=$opage?>"><?=$opage?></a></li>
+
+  <?php
+}
+          ?>
+          
+          <li class="page-item <?=$nswitch?>">
+            <a class="page-link" href="?<?php if(isset($_GET['search'])){echo "search=$keyword&";}?>page=<?=$page+1?>">Next</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- <div class="col-lg-4 col-md-6 px-4">
         <div class="card mx-auto">
           <a href="post1.php"><img src="images/blog/p1.jpg" class="card-img-top width-100"
               alt="Gardening tools spread out" /></a>
@@ -164,20 +174,11 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Footer -->
-
-  <footer id="footer">
-    <div class="container-fluid">
-      <a href="https://www.facebook.com/" class="link-dark"><i class="social-icon fab fa-facebook-f"></i></a>
-      <a href="https://twitter.com/" class="link-dark"><i class="social-icon fab fa-twitter"></i></a>
-      <a href="https://www.instagram.com/?hl=en" class="link-dark"><i class="social-icon fab fa-instagram"></i></a>
-      <a href="https://mail.google.com/" class="link-dark"><i class="social-icon fas fa-envelope"></i></a>
-      <p class="footer-para">Made with 💚 in Nitte</p>
-      <p>© Copyright 2022 Rooted</p>
-    </div>
-  </footer>
+  <?php include_once('includes/footer.php'); ?>
+ 
 
   <!-- Bootstrap JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

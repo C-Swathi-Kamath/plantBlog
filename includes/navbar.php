@@ -1,58 +1,53 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand" href="#">MyBlog</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-<?php
-$navQuery = "SELECT * FROM menu";
-$runNav=mysqli_query($db,$navQuery);
-while($menu=mysqli_fetch_assoc($runNav)){
-  $no = getSubMenuNo($db,$menu['id']);
-  if(!$no){
-    ?>
-<li class="nav-item">
-                <a class="nav-link" aria-current="page" href="<?=$menu['action']?>"><?=$menu['name']?></a>
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" id="logo" href="index.php"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+        <?php if($id == '')
+        { ?> <li class="nav-item">
+          <a class="nav-link" href="index.php">Home</a>
+        </li> 
+       <?php } ?>    
+          <li class="nav-item">
+            <a class="nav-link" href="about.php">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.php">Blog</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+              Miscellaneous
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="pricing.php">Pricing</a>
               </li>
-    <?php
-  }else{
-    ?>
-<li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="<?=$menu['action']?>" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <?=$menu['name']?>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-<?php
-$submenus = getSubMenu($db,$menu['id']);
-foreach($submenus as $sm){
-  ?>
-                  <li><a class="dropdown-item" href="<?=$sm['action']?>"><?=$sm['name']?></a></li>
-
-  <?php
-}
-?>
-                  
-
-                </ul>
+              <li>
+                <a class="dropdown-item" href="gallery.php">Gallery</a>
               </li>
-    <?php
-  }
-  ?>
-
-  <?php
-}
-?>
-              
-            
-              
-              
+              <li>
+                <a class="dropdown-item" href="caretips.php">Care tips</a>
+              </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>  
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.php">Contact</a>
+          </li>
+          <?php if($id == '')
+        { ?>
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
+          </li>
+       <?php }else{ ?>
+        <li class="nav-item">
+            <a class="nav-link" href="logout.php">Logout</a>
+          </li>
+        <?php }?>
+        </ul>
+      </div>
+    </div>
+  </nav>
