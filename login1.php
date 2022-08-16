@@ -1,8 +1,6 @@
 <?php 
 
-session_start();
-
-	include("connection.php");
+	include("includes/db.php");
 	include("functions.php");
 
 
@@ -18,7 +16,7 @@ session_start();
 
 			//read from database
 			$query = "select * from user where email = '$email' limit 1";
-			$result = mysqli_query($con, $query);
+			$result = mysqli_query($db, $query);
 
 			if($result)
 			{

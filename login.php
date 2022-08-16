@@ -29,36 +29,36 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand" id="logo" href="index.html"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
+      <a class="navbar-brand" id="logo" href="index.php"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="index.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="about.php">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
+            <a class="nav-link" href="blog.php">Blog</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
               Miscellaneous
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="pricing.html">Pricing</a></li>
-              <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
-              <li><a class="dropdown-item" href="caretips.html">Care tips</a></li>
+              <li><a class="dropdown-item" href="pricing.php">Pricing</a></li>
+              <li><a class="dropdown-item" href="gallery.php">Gallery</a></li>
+              <li><a class="dropdown-item" href="caretips.php">Care tips</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="contact.php">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
+            <a class="nav-link" href="login.php">Login</a>
           </li>
         </ul>
       </div>
