@@ -1,3 +1,14 @@
+<?php 
+
+
+	include("includes/db.php");
+	include("functions.php");
+  $id = $_SESSION['id'];
+	$query = "select * from user where id = '$id' limit 1";
+  $result = mysqli_query($db,$query);
+  $user_data = mysqli_fetch_assoc($result);
+  ?>
+  
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,43 +38,7 @@
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" id="logo" href="index.php"><i class="fa-solid fa-seedling logo-icon"></i>Rooted</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.php">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="blog.php">Blog</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-              Miscellaneous
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="pricing.php">Pricing</a></li>
-              <li><a class="dropdown-item" href="gallery.php">Gallery</a></li>
-              <li><a class="dropdown-item" href="caretips.php">Care tips</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.php">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.php">Login</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <?php include_once('includes/navbar.php'); ?>
 
   <!-- Login -->
   <section id="login">
