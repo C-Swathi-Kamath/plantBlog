@@ -22,9 +22,12 @@ include("includes/db.php");
           <li class="nav-item">
             <a class="nav-link" href="about.php">About</a>
           </li>
+          <?php if(isset($_SESSION['isUserLoggedIn']) && $_SESSION['isUserLoggedIn'])
+        { ?>
           <li class="nav-item">
             <a class="nav-link" href="blog.php">Blog</a>
           </li>
+       <?php } ?>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
               Miscellaneous
