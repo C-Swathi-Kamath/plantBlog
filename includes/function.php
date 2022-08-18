@@ -29,6 +29,18 @@ function getImagesByPost($db,$post_id){
     
 }
 
+function getAllComments($db){
+    $query="SELECT * FROM comments  ORDER BY id DESC";
+    $run=mysqli_query($db,$query);
+    $data = array();
+
+    while($d=mysqli_fetch_assoc($run)){
+        $data[]=$d;
+    }
+    return $data; 
+}
+
+
 function getComments($db,$post_id){
     $query="SELECT * FROM comments WHERE post_id=$post_id ORDER BY id DESC";
     $run=mysqli_query($db,$query);

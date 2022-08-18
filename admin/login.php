@@ -1,5 +1,6 @@
 <?php
 require('../includes/db.php');
+
 if(isset($_SESSION['isUserLoggedIn']) && $_SESSION['isUserLoggedIn']){
   header('Location:index.php');
  

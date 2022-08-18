@@ -1,12 +1,6 @@
 <?php 
-	include("includes/db.php");
-	include("functions.php");
   require('includes/function.php');
-  $id = $_SESSION['id'];
-	$query = "select * from user where id = '$id' limit 1";
-  $result = mysqli_query($db,$query);
-  $user_data = mysqli_fetch_assoc($result);
-  ?>
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,14 +39,14 @@
             <h2 class="fw-bold fs-2 mb-5"><?=$post['title']?></h2>
             <img src="images/<?=getPostThumb($db,$post['id'])?>" class="w-75 rounded mb-5">
            </div> <?=$post['content']?> </div>
-           <!-- <button type="button" class="btn btn-success mx-5 my-3 px-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+           <button type="button" class="btn btn-success mx-5 my-3 px-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
              Comment on this
-           </button> -->
+           </button>
           </div>
         </div>
 
-      <!-- Modal -->
-      <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       
+       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -77,12 +71,11 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> 
 
-      <div class="text-center w-100">
-       
-      </div>
-        -->
+      </div>        
+            <?php include_once('includes/sidebar.php'); ?>
+        </div>
 
     <!-- Footer -->
     <?php include_once('includes/footer.php'); ?>

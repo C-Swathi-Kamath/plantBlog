@@ -1,12 +1,3 @@
-<?php 
-
-	include("includes/db.php");
-	include("functions.php");
-  $id = $_SESSION['id'];
-	$query = "select * from user where id = '$id' limit 1";
-  $result = mysqli_query($db,$query);
-  $user_data = mysqli_fetch_assoc($result);
-  ?>
 
 <!DOCTYPE html>
 <html lang="en">

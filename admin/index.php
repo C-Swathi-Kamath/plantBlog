@@ -61,7 +61,7 @@ $admin=getAdminInfo($db,$_SESSION['email']);
       </div>
 
       <!--logo start-->
-      <a href="index.php" class="logo">Nice <span class="lite">Admin</span></a>
+      <a href="index.php" class="logo">ROOTED Admin Page</span></a>
    
 
       <div class="top-nav notification-row">
@@ -79,10 +79,7 @@ $admin=getAdminInfo($db,$_SESSION['email']);
           <!-- user login dropdown start-->
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
-                            </span>
-                    
+                            
                             <span class="username"><?=$admin['full_name']?></span>
                             <b class="caret"></b>
                         </a>
@@ -122,7 +119,7 @@ $admin=getAdminInfo($db,$_SESSION['email']);
                       </a>
           </li>
           <li class="active">
-            <a class="" href="index.html">
+            <a class="" href="index.php?managecomment">
                           <i class="icon_house_alt"></i>
                           <span>Manage Comments</span>
                       </a>
@@ -213,6 +210,61 @@ $admin=getAdminInfo($db,$_SESSION['email']);
             </section>
           </div>
         </div>
+
+        <?php
+     }else if(isset($_GET['managecomment'])){
+?>
+<div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                Comments
+              </header>
+
+              <table class="table table-striped table-advance table-hover">
+                <tbody>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Message</th>
+                    <th>Post Date</th>
+                    <th>Action</th>
+                  </tr>
+
+          <?php
+          $comments = getAllComments($db);
+          $count=1;
+          foreach($comments as $comment){
+            ?>
+<tr>
+                    <td><?=$count?></td>
+                    <td><?=$comment['name']?></td>
+                    <td><?=$comment['comment']?></td>
+
+                    <td><?=date('F jS, Y',strtotime($comment['created_at']))?></td>
+
+                   
+                    <td>
+                      <div class="btn-group">
+                       
+                        <a class="btn btn-danger" href="../includes/removecomment.php?id=<?=$comment['id']?>">Remove <i class="icon_close_alt2"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+            <?php
+            $count++;
+          }
+          ?>
+                  
+                
+
+                
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+
 
 <?php
      }else if(isset($_GET['managemenu'])){
