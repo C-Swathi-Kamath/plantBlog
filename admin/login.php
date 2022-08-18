@@ -28,73 +28,54 @@ if(mysqli_num_rows($runQuery)){
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
-  <meta name="author" content="GeeksLabs">
-  <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-  <link rel="shortcut icon" href="img/favicon.png">
+  <link rel="shortcut icon" href="../images/sprout.ico">
 
-  <title>MyBlog - Admin Panel</title>
+  <title>Rooted - Admin Panel</title>
 
   <!-- Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- bootstrap theme -->
-  <link href="css/bootstrap-theme.css" rel="stylesheet">
-  <!--external css-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <!-- font icon -->
+   <!-- Google Fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;900&family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet" />
   <link href="css/elegant-icons-style.css" rel="stylesheet" />
   <link href="css/font-awesome.css" rel="stylesheet" />
   <!-- Custom styles -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet" />
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
-  <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- =======================================================
-      Theme Name: NiceAdmin
-      Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-      Author: BootstrapMade
-      Author URL: https://bootstrapmade.com
-    ======================================================= -->
+  <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+  
 </head>
 
-<body class="login-img3-body">
-
-  <div class="container">
-
-    <form class="login-form" method="post">
-      <div class="login-wrap">
-        <p class="login-img"><i class="icon_lock_alt"></i></p>
-        <div class="input-group">
-          <span class="input-group-addon"><i class="icon_profile"></i></span>
-          <input type="email" class="form-control" name="email" placeholder="Email" autofocus required>
+<body >
+<section id="login">
+    <div class="col-lg-6 mt-5 px-5 ms-5 position-absolute start-50">
+      <h2 class="fs-2 fw-bold mb-5 ms-5 ps-5 mt-5 pt-5">Welcome back!</h2>
+      <form name="user" method="POST">
+        <div class="mb-3">
+          <label for="email">Email address</label>
+          <input type="email" class="signup-input form-control" name="email" placeholder="Email address" required>
         </div>
-        <div class="input-group">
-          <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-          <input type="password" class="form-control" name="password" placeholder="Password" required>
+        <div class="mb-3">
+          <label for="floatingPassword">Password</label>
+          <input type="password" class="signup-input form-control" name="password" placeholder="Password" required>
         </div>
-        
-        <button class="btn btn-primary btn-lg btn-block" name="login" type="submit">Login</button>
-        
-      </div>
-    </form>
-    <div class="text-right">
-      <div class="credits">
-          <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-          -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        <div class="signup-buttons ms-5 ps-5 mt-5">
+          <button type="submit" name="login" class="btn btn-success btn-lg mt-1 ms-5 me-3">Login</button>
         </div>
+      </form>
     </div>
-  </div>
+  </section>
 
 
 </body>
 
 </html>
+
+
+<form class="login-form" method="post">
+
+<p class="login-img"><i class="icon_lock_alt"></i></p>
