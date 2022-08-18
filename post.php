@@ -38,10 +38,14 @@
             ?>
             <h2 class="fw-bold fs-2 mb-5"><?=$post['title']?></h2>
             <img src="images/<?=getPostThumb($db,$post['id'])?>" class="w-75 rounded mb-5">
-           </div> <?=$post['content']?> </div>
+           </div> <?=$post['content']?>
+           </div>
+           <div class="col-3 mx-auto">
            <button type="button" class="btn btn-success mx-5 my-3 px-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
              Comment on this
            </button>
+           </div>
+           
           </div>
         </div>
 
@@ -56,17 +60,13 @@
             <div class="modal-body">
               <form action="includes/add_comment.php" method="post">
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Name</label>
-                  <input type="name" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                </div>
-                <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Comment</label>
                   <input type="text" class="form-control" name="comment" id="exampleInputPassword1" />
                 </div>
                 <input type="hidden" name="post_id" value="<?=$post_id?>" />
-                <button type="submit" name="addcomment" class="btn btn-success">
+                <button type="submit" name="addcomment" class="btn btn-success mx-auto">
                   Add Comment
-                </button>
+                </button></div>
               </form>
             </div>
           </div>
